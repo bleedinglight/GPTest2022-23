@@ -23,7 +23,6 @@ flag flag;
 void draw() {
   
   background(255);
-  flag.coloursSetup();
   flag.render();
   
 }

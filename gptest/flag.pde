@@ -5,8 +5,10 @@ class flag {
  float x;
  float y;
  float segments;
- int[] colours = new int[5];
- int hue = 0;
+ 
+ void setup() {
+  colorMode(HSB); 
+ }
  
  
  flag(float x, float y, float fwidth, float fheight) {
@@ -18,14 +20,6 @@ class flag {
   
  }
  
- void coloursSetup() {
-   
-   for(int i = 0; i < 5; i++) {
-     colours[i] = hue;
-     hue += 30;
-   }
-   
- }
   
  void render() {
    
@@ -35,7 +29,7 @@ class flag {
     
    for(int i = 0; i < 5; i++) {
      
-     fill(colours[i], 255, 255);
+     fill(0 + 50*i, 255, 255);
      rect(0, 0 + segments*i, fwidth, segments);
        
       
