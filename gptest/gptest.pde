@@ -5,7 +5,7 @@
 //draw bars(done)
 //draw triangles(done)
 //create arraylist(done)
-//move flags
+//move flags(done)
 //change flag sizes
 //push to repo
 
@@ -63,11 +63,7 @@ void drawFlags(int number) {
   
 }
 
-
-
 void draw() {
-  
-  
   
   background(255);
   for(int i = 0; i < flags.size(); i++) {
@@ -87,6 +83,12 @@ void draw() {
     if(flagPosX[i] > 1000) {
       flagPosX[i] = -200;
     }
+  }
+  
+  for(int i = 0; i < flags.size(); i++) {
+    flagWidth[i] += (int) random(-25, 25);
+    flagHeight[i] += (int) random(-25, 25);
+   
   }
   
 }
