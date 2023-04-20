@@ -48,7 +48,7 @@ class flag {
    fill(50, 300, 300);
    triangle(x, y + segments, x + fwidth / 2.5, y + fheight / 2.5, x, y + segments * 4);
    
-   stroke(295, 300, 300);
+   stroke(220, 300, 300);
    strokeWeight(5);
    noFill();
    circle(x + fwidth / 6.5, y + fheight / 2.5, fheight / 5);

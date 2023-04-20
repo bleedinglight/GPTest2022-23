@@ -13,11 +13,13 @@ public int[] colours = new int[5];
 
 ArrayList<flag> flags = new ArrayList<flag>();
 
+
+
 void setup() {
   
   size(1000, 1000);
-  flag = new flag(500, 500, 200, 200);
   colorMode(HSB);
+  frameRate(30);
   
   int hue = 0;
   
@@ -30,10 +32,15 @@ void setup() {
   
   drawFlags(5);
   
+  
 }
 
 flag flag;
 
+float[] flagPosX = new float[5];
+float[] flagPosY = new float[5];
+float[] flagWidth = new float[5];
+float[] flagHeight = new float[5];
 
 void drawFlags(int number) {
   
@@ -41,6 +48,16 @@ void drawFlags(int number) {
     
     flag flag = new flag(0, 0, 0, 0);
     flags.add(flag);
+    
+    for(int k = 0; k < number; k++) {
+      
+    
+      flagPosX[i] = random (200, 800);
+      flagPosY[i] = random (200, 800);
+      flagWidth[i] = random(100, 300);
+      flagHeight[i] = random(100, 300);
+    
+    }
   
   }
   
@@ -56,13 +73,20 @@ void draw() {
   for(int i = 0; i < flags.size(); i++) {
     
     flag flag = flags.get(i);
-    flag.fwidth = random(100, 300);
-    flag.fheight = random(100, 300);
-    flag.x = random(0, 1000);
-    flag.y = random(0, 1000);
+    flag.fwidth = (int) flagWidth[i];
+    flag.fheight = (int) flagHeight[i];
+    flag.x = flagPosX[i];
+    flag.y = flagPosY[i];
     
     flag.render();
   }
   
+  for(int i = 0; i < flags.size(); i++) {
+    flagPosX[i] += 1.5f;
+    
+    if(flagPosX[i] > 1000) {
+      flagPosX[i] = -200;
+    }
+  }
   
 }
